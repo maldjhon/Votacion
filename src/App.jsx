@@ -3,6 +3,7 @@ import { useContrato } from "./hooks/useVotacion";
 import { Opcion } from "./hooks/useOpcion"
 import {Resultados} from "./hooks/useResultados"
 import {useRedEthereum} from "./hooks/useRedEthereum"
+import { SubidaIPFS } from "./components/SubidaW3Up";
 import './App.css'
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
   const contrato = useContrato();
   const {estado,votacion} = Opcion(contrato);
   const {listas} = Resultados (contrato);  
-  const { redValida, nombreRed } = useRedEthereum();
+  const {redValida, nombreRed} = useRedEthereum ();  
 
   if (redValida === false) {
     return (
@@ -37,6 +38,7 @@ function App() {
             <p><li>Tacos: </li><span>{listas[2]}</span></p>
           </ul>
         </div>
+        <SubidaIPFS />
       </>
     )
   }

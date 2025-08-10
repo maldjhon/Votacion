@@ -13,7 +13,7 @@ export function useRedEthereum() {
       if (window.ethereum) {
         const provider = new ethers.BrowserProvider(window.ethereum);
         const network = await provider.getNetwork();
-        setRedValida(network.chainId === RED_ACEPTADA);
+        setRedValida( Number(network.chainId) === RED_ACEPTADA);
         setNombreRed(network.name);
       }
     };
